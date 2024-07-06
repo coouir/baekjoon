@@ -1,25 +1,27 @@
-def f(b):
-    if len(b) == 0:
+# function
+def function(s):
+    if len(s) == 0:
         return
      
-    fl = len(b)
-    for i in range(len(b)-1):
-        if b[i] + b[i+1] == '()':
-            b.pop(i); b.pop(i)
+    fl = len(s)
+    for i in range(len(s)-1):
+        if s[i] + s[i+1] == '()':
+            s.pop(i); s.pop(i)
             break
-    if fl == len(b):
+    if fl == len(s):
         return
 
-    return f(b)
+    return function(s)
 
+# main
 T = int(input())
 
 for i in range(T):
-    s = input()
-    l = list(s)
+    string = input()
+    sList = list(string)
 
-    f(l)
-    if len(l) == 0:
+    function(sList)
+    if len(sList) == 0:
         print('YES')
     else:
         print('NO')

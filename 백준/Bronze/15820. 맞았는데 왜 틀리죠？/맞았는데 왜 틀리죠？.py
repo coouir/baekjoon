@@ -1,17 +1,19 @@
 S1, S2 = map(int, input().split())
-check = True
-
+check_sample = True
+check_system = True
 for i in range(S1):
     a, b = map(int, input().split())
     if a != b:
-        check = False
+        check_sample = False
 
 for i in range(S2):
     a, b = map(int, input().split())
     if a != b:
-        check = False
+        check_system = False
 
-if check:
+if check_sample == True and check_system == True:
     print("Accepted")
-else:
+elif check_sample == False:
     print("Wrong Answer")
+else:
+    print("Why Wrong!!!")

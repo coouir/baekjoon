@@ -1,5 +1,3 @@
-input = __import__('sys').stdin.readline
-
 N, M, R = map(int, input().split())
 arr = []
 for i in range(N):

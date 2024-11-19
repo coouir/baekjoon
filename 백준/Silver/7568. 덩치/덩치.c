@@ -3,7 +3,6 @@
 typedef struct {
     int weight;
     int height;
-    int rank;
 } P;
 
 int main() {

@@ -7,11 +7,8 @@ int main() {
     cin >> M >> N;
     for (int i=M; i<=N; i++) {
         if (i == 1) continue;
-        if (i == 2) {
-            cout << 2 << endl;
-        }
         int check = true;
-        for (int j=2; j<sqrt(i)+1; j++) {
+        for (int j=2; j<(int)sqrt(i) + 1; j++) {
             if (i%j == 0) {
                 check = false;
                 break;

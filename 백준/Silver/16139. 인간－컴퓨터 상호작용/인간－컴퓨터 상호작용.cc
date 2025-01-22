@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 
+int prefix[26][200010] = {};
+
 int main() {
     ios_base :: sync_with_stdio(false);
     cin.tie(NULL);
@@ -10,8 +12,6 @@ int main() {
     // a: 97
     // z: 122
     
-    int prefix[26][2010] = {};
-
     string str;
     cin >> str;
     for (int i=0; i<str.length(); i++) {
@@ -24,7 +24,7 @@ int main() {
             }
         }
     }
-    
+
     int q;
     cin >> q;
     for (int i=0; i<q; i++) {

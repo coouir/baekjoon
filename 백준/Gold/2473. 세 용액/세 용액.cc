@@ -32,7 +32,7 @@ int main() {
             }
 
             // 이동
-            if (arr[i] + (arr[e] + arr[s]) >= 0) {
+            if (arr[i] + arr[e] + arr[s] >= 0) {
                 e--;
             } else {
                 s++;

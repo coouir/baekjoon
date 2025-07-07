@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 31120 KB, 시간: 36 ms
+메모리: 110812 KB, 시간: 132 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2024년 8월 26일 12:12:16
+2025년 7월 7일 15:25:20
 
 ### 문제 설명
 
@@ -28,8 +28,8 @@
 	<tbody>
 		<tr>
 			<td style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/0bae8536-3ff2-42f2-92e5-460bfcb0b84c/-/preview/" style="height: 300px; width: 286px;"></td>
-			<td style="text-align: center;"><img alt="" src="" style="height: 300px; width: 288px;"></td>
-			<td style="text-align: center;"><img alt="" src="" style="height: 300px; width: 283px;"></td>
+			<td style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/1d89ce4e-5247-4ec0-96f1-649bbaa19505/-/preview/" style="height: 300px; width: 288px;"></td>
+			<td style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/a461e913-75a8-420c-a818-84b646b304ae/-/preview/" style="height: 300px; width: 283px;"></td>
 		</tr>
 		<tr>
 			<td style="text-align: center;">한손 코딩</td>

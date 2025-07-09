@@ -1,24 +1,14 @@
-string = input().upper()
+arr = [0 for i in range(26)]
 
-D = {}
+str = input().upper()
+for i in range(len(str)):
+    arr[ord(str[i])-65] += 1
 
-for i in string:
-    if i in D:
-        D[i] += 1
-    else:
-        D[i] = 1
-
-max = 0
-for j in D:
-    if D[j] > max:
-        max = D[j]
-
-l = []
-for p in D:
-    if D[p] == max:
-        l.append(p)
-
-if len(l) == 1:
-    print(l[0])
-else:
-    print("?")
+for i in range(26):
+    if arr[i] == max(arr):
+        for j in range(i+1, 26):
+            if arr[j] == arr[i]:
+                print("?")
+                exit()
+        print(chr(65+i))
+        exit() 

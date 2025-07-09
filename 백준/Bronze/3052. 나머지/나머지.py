@@ -1,6 +1,7 @@
-n = set()
+s = set()
 
-for i in range(10):
-    n.add(int(input())%42)
+for _ in range(10):
+    x = int(input())
+    s.add(x%42)
 
-print(len(n))
+print(len(s))

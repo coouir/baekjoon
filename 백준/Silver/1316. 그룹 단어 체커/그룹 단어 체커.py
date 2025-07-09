@@ -1,18 +1,19 @@
-N = int(input())
 cnt = 0
 
-for i in range(N):
-    l_s = list(input())
-    l = len(l_s)
-    s = []
+N = int(input())
+for _ in range(N):
+    str = input()
+    n = len(str)
 
-    for j in range(len(l_s)):
-        p = l_s.pop()
-        if (p in s) and (p != s[-1]):
-            break
-        else:
-            s.append(p)
-    if len(s) == l: 
+    check = True
+    for i in range(n):
+        for j in range(i+1, n):
+            if str[i] != str[j]:
+                for k in range(j+1, n):
+                    if str[k] == str[i]:
+                        check = False
+                        break
+    if check:
         cnt += 1
 
 print(cnt)

@@ -1,10 +1,7 @@
-a = int(input())
-b = int(input())
+A, B = int(input()), int(input())
 
-c = a * ((b%100)%10)
-d = a * ((b%100)//10)
-e = a * (b//100)
+print(A*((B%100)%10))
+print(A*((B%100)//10))
+print(A*(B//100))
 
-print(c); print(d); print(e)
-
-print(c + d*10 + e*100)
+print(A*B)

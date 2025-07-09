@@ -1,16 +1,15 @@
-n = int(input())
+N = int(input())
 
 cnt = 0
-
-while n >= 3:
-    if n % 5 == 0:
-        cnt += n // 5
-        n = 0
+while N > 0:
+    if (N%5 == 0):
         break
-    else:
-        n -= 3
-        cnt += 1
-if n > 0:
+
+    N -= 3
+    cnt += 1
+
+if (N < 0):
     print(-1)
 else:
+    cnt += N//5
     print(cnt)

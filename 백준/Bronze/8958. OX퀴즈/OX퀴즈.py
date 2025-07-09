@@ -1,13 +1,13 @@
 T = int(input())
+for _ in range(T):
+    str = input()
+    arr = [0 for i in range(len(str))]
 
-for i in range(T):
-    ox = tuple(input())
-    sum = 0
+    if str[0] == 'O':
+        arr[0] = 1
 
-    for i in range(len(ox)):
-        for j in range(i, -1, -1):
-            if ox[j] == "O":
-                sum += 1
-            else:
-                break
-    print(sum)
+    for i in range(1, len(str)):
+        if str[i] == 'O':
+            arr[i] = arr[i-1] + 1
+    
+    print(sum(arr))

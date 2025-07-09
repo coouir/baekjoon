@@ -1,4 +1,4 @@
 N = int(input())
-nList = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 
-print(min(nList), max(nList))
+print(min(arr), max(arr))

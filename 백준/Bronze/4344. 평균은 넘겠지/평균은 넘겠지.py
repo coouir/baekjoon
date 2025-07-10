@@ -1,11 +1,10 @@
-input = __import__('sys').stdin.readline
-
 C = int(input())
-for i in range(C):
-    cnt = 0
+for _ in range(C):
     arr = list(map(int, input().split()))
-    for j in arr[1:]:
-        if j > sum(arr[1:])/arr[0]:
+    s = sum(arr[1:]) / arr[0]
+
+    cnt = 0
+    for i in range(1, len(arr)):
+        if arr[i] > s:
             cnt += 1
-    r = round((cnt/len(arr[1:]))*100, 3)
-    print("{:.3f}%".format(r))
+    print(f"{round(cnt/arr[0] * 100, 3):.3f}%")

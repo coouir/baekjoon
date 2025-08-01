@@ -1,7 +1,16 @@
-from itertools import combinations_with_replacement as cbwr 
+def recur(depth):
+    if depth >= 2 and arr[depth-1] < arr[depth-2]:
+        return
+
+    if depth == M:
+        print(*arr)
+        return 
+    
+    for i in range(N):
+        arr[depth] = i+1
+        recur(depth + 1)
 
 N, M = map(int, input().split())
-arr = [i for i in range(1, N+1)]
+arr = [0 for i in range(M)]
 
-for t in cbwr(arr, M):
-    print(' '.join(map(str, t)))
+recur(0)

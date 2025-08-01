@@ -1,9 +1,13 @@
-def go(arr):
-    if len(arr) == m:
-        print(' '.join(map(str,arr)))
+def recur(depth):
+    if depth == M:
+        print(*arr)
         return
-    for i in range(1, n+1):
-        go(arr+[i])
+    
+    for i in range(N):
+        arr[depth] = i+1
+        recur(depth + 1)
 
-n, m = map(int,input().split())
-go([])
+N, M = map(int, input().split())
+arr = [0 for i in range(M)]
+
+recur(0)

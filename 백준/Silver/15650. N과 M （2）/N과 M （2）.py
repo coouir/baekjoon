@@ -1,7 +1,13 @@
-from itertools import combinations as cb
+def recur(depth, start):
+    if M == depth:
+        print(*arr)
+        return
+    
+    for i in range(start, N):
+        arr[depth] = i+1
+        recur(depth+1, i+1)
 
 N, M = map(int, input().split())
-l = [i for i in range(1, N+1)]
+arr = [0 for i in range(M)]
 
-for t in cb(l, M):
-    print(' '.join(map(str, t)))
+recur(0, 0)

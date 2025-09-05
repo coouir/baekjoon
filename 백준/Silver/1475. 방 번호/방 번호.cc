@@ -1,32 +1,30 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, M;
 int arr[10];
 
 int main() {
-    int N;
-    cin >> N;
-    while (N > 0) {
-        arr[N%10]++;
-        N /= 10;
-    }
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    if ((arr[9]+arr[6])%2 == 0) {
-        int num = (arr[9] + arr[6])/2;
-        arr[9] = num;
-        arr[6] = num;
-    } else {
-        int num = (arr[9] + arr[6])/2;
-        arr[9] = num+1;
-        arr[6] = num;
+    cin >> n;
+    while(n > 0) {
+        arr[n%10]++;
+        n /= 10;
     }
-
-    int max_val = 0;
-    for (int i=0; i<10; i++) {
-        max_val = max(max_val, arr[i]);
-    }
-    cout << max_val;
     
+    int n69 = arr[6] + arr[9];
+    arr[6] = n69 / 2;
+    arr[9] = n69 / 2;
+    if (n69%2 == 1) {
+        arr[9]++;
+    }
+
+    for (int i=0; i<10; i++) {
+        M = max(M, arr[i]);
+    }
+    cout << M;
+
     return 0;
 }

@@ -1,38 +1,41 @@
-#include <iostream>
-#include <stack>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, x;
+string str;
+
 int main() {
-    stack<int> s;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    string str;
-    int n;
+    stack<int> S;
 
-    int N;
-    cin >> N;
-    for (int i=0; i<N; i++) {
+    cin >> n;
+    while(n--) {
         cin >> str;
-
         if (str == "push") {
-            cin >> n;
-            s.push(n);
+            cin >> x;
+            S.push(x);
         } else if (str == "pop") {
-            if (!s.empty()) {
-                cout << s.top() << '\n';
-                s.pop();
-            } else {
+            if (S.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << S.top() << '\n';
+                S.pop();
             }
         } else if (str == "size") {
-            cout << s.size() << '\n';
+            cout << S.size() << '\n';
         } else if (str == "empty") {
-            cout << s.empty() << '\n';
-        } else if (str == "top") {
-            if (!s.empty()) {
-                cout << s.top() << '\n';
+            if (S.empty()) {
+                cout << 1 << '\n';
             } else {
+                cout << 0 << '\n';
+            }
+        } else {
+            if (S.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << S.top() << '\n';
             }
         }
     }

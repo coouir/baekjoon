@@ -1,54 +1,60 @@
-#include <iostream>
-#include <deque>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, x;
+string str;
+
 int main() {
-    deque<int> dq;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    string str;
-    int n;
+    deque<int> DQ;
 
-    int N;
-    cin >> N;
-    for (int i=0; i<N; i++) {
+    cin >> n;
+    while (n--) {
         cin >> str;
         if (str == "push_front") {
-            cin >> n;
-            dq.push_front(n);
+            cin >> x;
+            DQ.push_front(x);
         } else if (str == "push_back") {
-            cin >> n;
-            dq.push_back(n);
+            cin >> x;
+            DQ.push_back(x);
         } else if (str == "pop_front") {
-            if (!dq.empty()) {
-                cout << dq.front() << '\n';
-                dq.pop_front();
-            } else {
+            if (DQ.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << DQ.front() << '\n';
+                DQ.pop_front();
             }
         } else if (str == "pop_back") {
-            if (!dq.empty()) {
-                cout << dq.back() << '\n';
-                dq.pop_back();
-            } else {
+            if (DQ.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << DQ.back() << '\n';
+                DQ.pop_back();
             }
         } else if (str == "size") {
-            cout << dq.size() << '\n';
-        } else if (str == "empty") { 
-            cout << dq.empty() << '\n';
-        } else if (str == "front") {
-            if (!dq.empty()) {
-                cout << dq.front() << '\n';
+            cout << DQ.size() << '\n';
+        } else if (str == "empty") {
+            if (DQ.empty()) {
+                cout << 1 << '\n';
             } else {
+                cout << 0 << '\n';
+            }
+        } else if (str == "front") {
+            if (DQ.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << DQ.front() << '\n';
             }
         } else if (str == "back") {
-            if (!dq.empty()) {
-                cout << dq.back() << '\n';
-            } else {
+            if (DQ.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << DQ.back() << '\n';
             }
         }
     }
+
     return 0;
 }

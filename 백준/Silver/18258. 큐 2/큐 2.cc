@@ -1,50 +1,51 @@
-#include <iostream>
-#include <queue>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, x;
+string  str;
+
 int main() {
-    ios_base :: sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    queue<int> q;
-    
-    string str;
-    int n;
+    queue<int> Q;
 
-    int N;
-    cin >> N;
-    for (int i=0; i<N; i++) {
+    cin >> n;
+    while(n--) {
         cin >> str;
-
+        
         if (str == "push") {
-            cin >> n;
-            q.push(n);
+            cin >> x;
+            Q.push(x);
         } else if (str == "pop") {
-            if (!q.empty()) {
-                cout << q.front() << '\n';
-                q.pop();
-            } else {
+            if (Q.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << Q.front() << '\n';
+                Q.pop();
             }
         } else if (str == "size") {
-            cout << q.size() << '\n';
+            cout << Q.size() << '\n';
         } else if (str == "empty") {
-            cout << q.empty() << '\n';
-        } else if (str == "front") {
-            if (!q.empty()) {
-                cout << q.front() << '\n';
+            if (Q.empty()) {
+                cout << 1 << '\n';
             } else {
+                cout << 0 << '\n';
+            }
+        } else if (str == "front") {
+            if (Q.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << Q.front() << '\n';
             }
         } else if (str == "back") {
-            if (!q.empty()) {
-                cout << q.back() << '\n';
-            } else {
+            if (Q.empty()) {
                 cout << -1 << '\n';
+            } else {
+                cout << Q.back() << '\n';
             }
         }
     }
+
     return 0;
 }

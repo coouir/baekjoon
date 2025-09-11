@@ -4,7 +4,7 @@ using namespace std;
 #define X first
 #define Y second
 
-int n, m=1, M, ans;
+int n, M, ans;
 int board[110][110];
 
 int dx[4] = {1, 0, -1, 0};

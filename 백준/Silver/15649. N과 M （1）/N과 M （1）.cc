@@ -5,8 +5,8 @@ int n, m;
 int arr[10];
 int isused[10];
 
-void func(int k) {
-    if (m == k) {
+void func(int cur) {
+    if (cur == m) {
         for (int i=0; i<m; i++) {
             cout << arr[i] << ' ';
         }
@@ -16,9 +16,9 @@ void func(int k) {
 
     for (int i=1; i<=n; i++) {
         if (!isused[i]) {
-            arr[k] = i;
+            arr[cur] = i;
             isused[i] = 1;
-            func(k+1);
+            func(cur+1);
             isused[i] = 0;
         }
     }

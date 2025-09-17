@@ -2,67 +2,77 @@
 using namespace std;
 
 int n, m, k, r, c;
-int board[50][50];
+int note[45][45];
 int sticker[15][15];
+
+bool pastable(int x, int y) {
+    for (int i=0; i<r; i++) {
+        for (int j=0; j<c; j++) {
+            if (note[x+i][y+j] == 1 && sticker[i][j] == 1) return false;
+        }
+    }
+
+    for (int i=0; i<r; i++) {
+        for (int j=0; j<c; j++) {
+            if (sticker[i][j] == 1) note[x+i][y+j] = 1;
+        }
+    }
+    return true;
+}
+
+void rotate() {
+    int tmp[15][15];
+    for (int i=0; i<r; i++) {
+        for (int j=0; j<c; j++) {
+            tmp[i][j] = sticker[i][j];
+        }
+    }
+
+    for (int i=0; i<c; i++) {
+        for (int j=0; j<r; j++) {
+            sticker[i][j] = tmp[r-1-j][i];
+        }
+    }
+    swap(r, c);
+}
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
     cin >> n >> m >> k;
-    for (int _=0; _<k; _++) {
+    while(k--) {
         cin >> r >> c;
-        for (int i=0; i<r; i++) 
-            for (int j=0; j<c; j++) 
+        for (int i=0; i<r; i++) {
+            for (int j=0; j<c; j++) {
                 cin >> sticker[i][j];
-
-        for (int dir=0; dir<4; dir++) {
-            for (int i=0; i<n-r+1; i++) {
-                for (int j=0; j<m-c+1; j++) {
-                    if (i+r > n || j+c > m) continue;
-                    bool tf = true;
-                    for (int x=i; x<i+r; x++) {
-                        for (int y=j; y<j+c; y++) {
-                            if (board[x][y] == 1 && sticker[x-i][y-j] == 1) {
-                                tf = false;
-                            }
-                        }
-                    }
-
-                    if (tf) {
-                        for (int x=i; x<i+r; x++) {
-                            for (int y=j; y<j+c; y++) {
-                                if (sticker[x-i][y-j] == 1) board[x][y] = 1;
-                            }
-                        }
-                        goto SUC;
-                    }
-                }
-            }
-            int tmp[15][15] = {};
-            for (int i=0; i<r; i++) {
-                for (int j=0; j<c; j++) {
-                    tmp[j][r-i-1] = sticker[i][j];
-                }
-            }
-            swap(r, c);
-            for (int i=0; i<r; i++) {
-                for (int j=0; j<c; j++) {
-                    sticker[i][j] = tmp[i][j];
-                }
             }
         }
-        SUC:
-            continue;
+
+        for (int dir=0; dir<4; dir++) {
+            bool check = false;
+            for (int i=0; i<=n-r; i++) {
+                if (check) break;
+                for (int j=0; j<=m-c; j++) {
+                    if(pastable(i, j)) {
+                        check = true;
+                        break;
+                    }
+                }
+            }
+
+            if (check) break;
+            rotate();
+        }
     }
 
     int cnt = 0;
     for (int i=0; i<n; i++) {
         for (int j=0; j<m; j++) {
-            if (board[i][j] == 1) cnt++;
+            if (note[i][j] == 1) cnt++;
         }
     }
     cout << cnt;
-
+    
     return 0;
 }

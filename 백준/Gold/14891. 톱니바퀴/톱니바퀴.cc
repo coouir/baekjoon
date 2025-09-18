@@ -20,43 +20,6 @@ void rotate(int num, int dir) {
     }
 }
 
-// void funcR(int num, int dir) {
-//     int check = false;
-
-//     if (num != 4 && cogwheel[num][2] != cogwheel[num+1][6]) check = true;
-//     rotate(num, dir);
-//     if (check) funcR(num+1, -dir);
-//     else return;
-// }
-
-// void funcL(int num, int dir) {
-//     int check = false;
-
-//     if (num != 1 && cogwheel[num][6] != cogwheel[num-1][2]) check = true;
-//     rotate(num, dir);
-//     if (check) funcR(num-1, -dir);
-//     else return;
-// }
-
-void func(int num, int dir) {
-    // cout << num << ' ' << dir << '\n';
-
-    int checkL = false;
-    int checkR = false;
-    if (num != 4 && cogwheel[num][2] != cogwheel[num+1][6]) checkR = true;
-    if (num != 1 && cogwheel[num][6] != cogwheel[num-1][2]) checkL = true;
-    rotate(num, dir);
-    // if (num == -1 || num == 5) return;
-    // if (num != 4 && cogwheel[num][2] != cogwheel[num+1][6]) {
-    //     func(num+1, -dir);
-    // } else if (num != 1 && cogwheel[num-1][2] != cogwheel[num][6]) {
-    //     func(num-1, -dir);
-    // }
-    // cout << checkL << ' ' << checkR << '\n';
-    if (checkL) func(num-1, -dir);
-    if (checkR) func(num+1, -dir);
-}
-
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -71,12 +34,6 @@ int main() {
     cin >> k;
     while (k--) {
         cin >> n >> d;
-        // funcR(n, d);        
-        // rotate(n, d);
-
-        // int R = cogwheel[n][2];
-        // int L = cogwheel[n][6];
-        
         
         rotate(n, d);
         
@@ -117,12 +74,6 @@ int main() {
                 }
             }
         }
-        // for (int i=1; i<=4; i++) {
-        //     for (int j=0; j<8; j++) {
-        //         cout << cogwheel[i][j] << ' ';
-        //     }
-        //     cout << '\n';
-        // }
     }
 
     int cnt = 0;
@@ -135,10 +86,3 @@ int main() {
     
     return 0;
 }
-
-
-// 1   0   1   0   1   1   1   1
-//     1   0   1   0   1   1   1   
-// 1
-
-// 0   1   0   1   1   1   1   1

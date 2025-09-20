@@ -1,24 +1,31 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n;
+string str[20010];
+
 bool cmp(string a, string b) {
-    if (a.length() == b.length()) return a < b;
-    return a.length() < b.length();
+    if (a.size() != b.size()) return a.size() < b.size();
+    return a < b;
 }
 
 int main() {
-    string arr[20000];
-    int N;
-    cin >> N;
-    for (int i=0; i<N; i++) {
-        cin >> arr[i];
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    vector<string> v;
+
+    cin >> n;
+    for (int i=0; i<n; i++) {
+        cin >> str[i];
     }
-    sort(arr, arr+N, cmp);
-    for (int i=0; i<N; i++) {
-        if (arr[i] == arr[i+1]) continue;
-        cout << arr[i] << endl;
+
+    sort(str, str+n, cmp);
+
+    for (int i=0; i<n; i++) {
+        if (i != 0 && str[i-1] == str[i]) continue;
+        cout << str[i] << '\n';
     }
+
     return 0;
 }

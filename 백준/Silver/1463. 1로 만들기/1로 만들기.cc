@@ -1,32 +1,28 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-int arr[1000010];
+int n;
+int D[1000010];
 
 int main() {
-    arr[1] = 0;
-    arr[2] = 1;
-    arr[3] = 1;
-    for (int i=4; i<=1000000; i++) {
-        if (i%2 == 0 && i%3 == 0) {
-            arr[i] = min(arr[i-1], min(arr[i/2], arr[i/3])) + 1;
-        } else if (i%2 == 0 && i%3 != 0) {
-            arr[i] = min(arr[i-1], arr[i/2]) + 1;
-        } else if (i%2 != 0 && i%3 == 0) {
-            arr[i] = min(arr[i-1], arr[i/3]) + 1;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    cin >> n;
+
+    D[1] = 0;
+    for (int i=2; i<=n; i++) {
+        if (i%6 == 0) {
+            D[i] = min(D[i-1]+1, min(D[i/3]+1, D[i/2]+1));
+        } else if (i%3 == 0) {
+            D[i] = min(D[i-1]+1, D[i/3]+1);
+        } else if (i%2 == 0) {
+            D[i] = min(D[i-1]+1, D[i/2]+1);
         } else {
-            arr[i] = arr[i-1] + 1;
+            D[i] = D[i-1]+1;
         }
     }
+    cout << D[n];
 
-    int N;
-    cin >> N;
-    
-    cout << arr[N];
-    
     return 0;
 }
-
-// DP  1   2   3   4   5   6   7   8   9   10  ...
-//     0   1   1   2   3   2   3   3   2   3   ...

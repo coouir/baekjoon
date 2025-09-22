@@ -1,38 +1,34 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-int arr[510][510];
-int DP[510][510];
+int n;
+int a[510][510];
+int d[510][510];
+
 
 int main() {
-    int n;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
     cin >> n;
-
-    for (int i=0; i<n; i++) {
-        for (int j=0; j<=i; j++) {
-            cin >> arr[i][j];
+    for (int i=1; i<=n; i++) {
+        for (int j=1; j<=i; j++) {
+            cin >> a[i][j];
         }
     }
 
-    DP[0][0] = arr[0][0];
-    for (int i=1; i<n; i++) {
-        DP[i][0] = DP[i-1][0] + arr[i][0];  
-        DP[i][i] = DP[i-1][i-1] + arr[i][i];
-    }
-
-    for (int i=0; i<n; i++) {
-        for (int j=0; j<=i; j++) {
-            if (j == 0 || j == i) continue;
-            DP[i][j] = max(DP[i-1][j], DP[i-1][j-1]) + arr[i][j];
+    d[1][1] = a[1][1];
+    for (int i=2; i<=n; i++) {
+        for (int j=1; j<=i; j++) {
+            d[i][j] = max(d[i-1][j-1], d[i-1][j]) + a[i][j];
         }
     }
 
-    int max_val = 0;
-    for (int j=0; j<n; j++) 
-        max_val = max(max_val, DP[n-1][j]);
-    
-    cout << max_val;
-    
+    int M = 0;
+    for (int j=1; j<=n; j++) {
+        M = max(M, d[n][j]);
+    }
+    cout << M;
+
     return 0;
 }

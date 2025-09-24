@@ -1,38 +1,35 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-class C {
-    public:
-        int s, e;
-        C (int s, int e) {
-            this->s = s;
-            this->e = e;
-        }
-        C () {}
-};
+int n, s, e;
 
-bool cmp(C a, C b) {
-    if (a.e == b.e) return a.s < b.s;
-    return a.e < b.e;
+bool cmp(pair<int, int> a, pair<int, int> b) {
+    if (a.second != b.second) return a.second < b.second;
+    return a.first < b.first;
 }
 
 int main() {
-    C c[100010];
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    int N;
-    cin >> N;
-    for (int i=0; i<N; i++)
-        cin >> c[i].s >> c[i].e;
+    vector<pair<int, int>> v;
 
-    sort(c, c+N, cmp);
+    cin >> n;
+    for (int i=0; i<n; i++) {
+        cin >> s >> e;
+        v.push_back({s, e});
+    }
+    sort(v.begin(), v.end(), cmp);
 
     int cnt = 1;
-    int t = c[0].e;
-    for (int i=1; i<N; i++) {
-        if (c[i].s >= t) {
+
+    s = v[0].first;
+    e = v[0].second;
+    for (int i=1; i<n; i++) {
+        if (e <= v[i].first) {
+            s = v[i].first;
+            e = v[i].second;
             cnt++;
-            t = c[i].e;
         }
     }
     cout << cnt;

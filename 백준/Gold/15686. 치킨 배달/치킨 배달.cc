@@ -12,8 +12,6 @@ vector<pair<int, int>> home;
 int result[15];
 int vis[15];
 
-
-
 void func(int cur) {
     if (cur == m) {
         int s = 0;
@@ -31,10 +29,7 @@ void func(int cur) {
         }
 
         ans = min(ans, s);
-
-        // for (int i=0; i<m; i++)
-        //     cout << result[i] << ' ';
-        // cout << '\n';
+        
         return; 
     }
 

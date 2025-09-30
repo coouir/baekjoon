@@ -26,5 +26,5 @@ int main() {
 
     cout << fixed;
     cout.precision(1);
-    cout << fabs(cnt1-cnt2)/2.0;
+    cout << fabs(cnt1-cnt2)/2;
 }

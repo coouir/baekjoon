@@ -17,8 +17,8 @@ int main() {
     x[n+1] = x[1];
     y[n+1] = y[1];
 
-    long double cnt1 = 0.0l;
-    long double cnt2 = 0.0l;
+    ll cnt1 = 0;
+    ll cnt2 = 0;
     for (int i=1; i<=n; i++) {
         cnt1 += x[i]*y[i+1];
         cnt2 += y[i]*x[i+1];
@@ -26,5 +26,5 @@ int main() {
 
     cout << fixed;
     cout.precision(1);
-    cout << fabs(cnt1-cnt2)/2;
+    cout << fabs(cnt1-cnt2)/2.0;
 }

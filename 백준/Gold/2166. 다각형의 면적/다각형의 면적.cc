@@ -3,8 +3,8 @@ using namespace std;
 using ll = long long;
 
 int n;
-double x[10010];
-double y[10010];
+ll x[10010];
+ll y[10010];
 
 int main() {
     ios::sync_with_stdio(0);
@@ -27,4 +27,6 @@ int main() {
     cout << fixed;
     cout.precision(1);
     cout << fabs(cnt1-cnt2)/2;
+    
+    return 0;
 }

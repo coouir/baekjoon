@@ -1,30 +1,26 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int arr[301][301];
-int prefix[301][301];
+int n, m, k, i, j, x, y;
+int board[310][310];
+int prefix[310][310];
 
 int main() {
-    int N, M;
-    scanf("%d %d", &N, &M);
-    for (int i=1; i<=N; i++) {
-        for (int j=1; j<=M; j++) {
-            scanf("%d", &arr[i][j]);
-        }
-    }    
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    for (int i=1; i<=N; i++) {
-        for (int j=1; j<=M; j++) {
-            prefix[i][j] = arr[i][j] + prefix[i][j-1] + prefix[i-1][j] - prefix[i-1][j-1];
+    cin >> n >> m;
+    for (int i=1; i<=n; i++) {
+        for (int j=1; j<=m; j++) {
+            cin >> board[i][j];
+            prefix[i][j] = prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1] + board[i][j];
         }
     }
-
-    int K;
-    scanf("%d", &K);
-    for (int k=0; k<K; k++) {
-        int i, j, x, y;
-        scanf("%d %d %d %d", &i, &j, &x, &y);
-        printf("%d\n", prefix[x][y] - prefix[x][j-1] - prefix[i-1][y] + prefix[i-1][j-1]);
+    
+    cin >> k;
+    while (k--) {
+        cin >> i >> j >> x >> y;
+        cout << prefix[x][y] - prefix[x][j-1] - prefix[i-1][y] + prefix[i-1][j-1] << '\n';
     }
 
     return 0;

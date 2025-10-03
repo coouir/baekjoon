@@ -1,21 +1,25 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, m, i, j;
+int arr[100010];
+int prefix[100010];
+
 int main() {
-    int arr[100001];
-    int prefix[100001] = {0};
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    int N, M;
-    scanf("%d %d", &N, &M);
-    for (int i=1; i<=N; i++) {
-        scanf("%d", &arr[i]);
+    cin >> n >> m;
+    for (int i=1; i<=n; i++)
+        cin >> arr[i];
+
+    for (int i=1; i<=n; i++)
         prefix[i] = prefix[i-1] + arr[i];
-    }
 
-    for (int k=0; k<M; k++) {
-        int i, j;
-        scanf("%d %d", &i, &j);
-        printf("%d\n", prefix[j] - prefix[i-1]);
+    while(m--) {
+        cin >> i >> j;
+        cout << prefix[j] - prefix[i-1] << '\n';
     }
+    
     return 0;
 }

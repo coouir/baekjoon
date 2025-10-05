@@ -14,7 +14,7 @@ int main() {
 
     int min_e = arr[N-1];
     int min_s = arr[0];
-    long long min_val = abs(min_e + min_s);
+    int min_val = abs(min_e + min_s);
 
     int s = 0;
     int e = N-1;
@@ -37,7 +37,3 @@ int main() {
     
     return 0;
 }
-
-// -99 -2 - 1 4 98
-// s
-//              e

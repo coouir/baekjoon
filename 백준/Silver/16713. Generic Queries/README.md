@@ -1,10 +1,10 @@
-# [Silver II] Generic Queries - 16713 
+# [Silver I] Generic Queries - 16713 
 
 [문제 링크](https://www.acmicpc.net/problem/16713) 
 
 ### 성능 요약
 
-메모리: 9832 KB, 시간: 832 ms
+메모리: 9832 KB, 시간: 668 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2025년 3월 3일 00:18:27
+2025년 10월 5일 18:42:47
 
 ### 문제 설명
 

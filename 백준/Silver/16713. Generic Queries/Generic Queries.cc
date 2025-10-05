@@ -1,28 +1,26 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+int n, q, s, e;
 int arr[1000010];
 int prefix[1000010];
 
 int main() {
-    ios_base :: sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    int N, Q;
-    cin >> N >> Q;
-    for (int i=1; i<=N; i++) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    cin >> n >> q;
+    for (int i=1; i<=n; i++) {
         cin >> arr[i];
-        prefix[i] = prefix[i-1] ^ arr[i];
+        prefix[i] = arr[i] ^ prefix[i-1];
     }
 
     int ans = 0;
-    for (int q=1; q<=Q; q++) {
-        int s, e;
+    while (q--) {
         cin >> s >> e;
         ans ^= prefix[e] ^ prefix[s-1];
     }
     cout << ans;
-
+    
     return 0;
 }
